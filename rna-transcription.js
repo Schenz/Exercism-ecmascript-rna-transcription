@@ -6,19 +6,16 @@ class Transcriptor {
             'G': 'C',
             'T': 'A'
         };
-        let rna = [];
 
-        for (let index = 0; index < dna.length; index++) {
-            let value = map[dna[index]] || dna[index];
+        return dna.split('').reduce((accumulator, currentValue) => {
+            let value = map[currentValue] || currentValue;
 
-            if (value === dna[index]) {
+            if (value === currentValue) {
                 throw new Error('Invalid input DNA.');
             }
 
-            rna.push(value);
-        }
-        
-        return rna.join('');
+            return [...accumulator, value];
+        }, []).join('');
     }
 }
 
