@@ -14,8 +14,8 @@ class Transcriptor {
                 throw new Error('Invalid input DNA.');
             }
 
-            return [...accumulator, value];
-        }, []).join('');
+            return accumulator + value;
+        }, '');
     }
 }
 
